@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8fdfe;
+    text-align: center;
+    direction: rtl;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    color: #333;
+}
+
+#score {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+#question {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+#answerDisplay {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    border: 2px solid #ee9a9a;
+    padding: 10px;
+    min-height: 40px;
+}
+
+#lettersContainer {
+    margin: 20px;
+}
+
+.letter {
+    font-size: 18px;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #97d3d3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.letter:hover {
+    background-color: #e9f1c9;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    background-color: #b5c9a8;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #007bb5;
+}
+
+#result {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+#endVideo {
+    width: 640px;
+    height: 360px;
+    visibility: hidden; /* سيتم تغييره عبر JavaScript */
+}

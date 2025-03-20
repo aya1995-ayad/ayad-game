@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المرحلة الثانية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 المرحلة الثانية</h1>
+        <p>✨ أسئلة جديدة، جاهز للتحدي؟ ✨</p>
+        <h2 id="question"></h2>
+        <div id="lettersContainer"></div>
+        <p>إجابتك: <span id="answerDisplay"></span></p>
+        <button onclick="clearAnswer()">❌ مسح الإجابة</button>
+        <button onclick="checkAnswer()">✅ تأكيد الإجابة</button>
+        <p id="result"></p>
+        <p id="score">النقاط: 0</p>
+        <audio id="correctSound" src="sounds/correct.mp3"></audio>
+        <audio id="wrongSound" src="sounds/wrong.mp3"></audio>
+        <div id="videoContainer" style="display: none; text-align: center;">
+            <iframe id="endVideo" width="640" height="360" style="display:none;" 
+    src="https://www.youtube.com/embed/2J1iiI93TGQ?autoplay=1" 
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe> 
+            
+        </div>        
+        <button id="restartBtn" onclick="restartGame()" style="display: none;">🔄 إعادة اللعب</button>
+
+    </div>
+    <script src="level2.js"></script>
+</body>
+</html>

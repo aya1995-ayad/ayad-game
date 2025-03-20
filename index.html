@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحدي الحروف؟</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ملف PWA -->
+<link rel="manifest" href="manifest.json">
+
+<!-- تسجيل الـ Service Worker -->
+<script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js")
+            .then(() => console.log("Service Worker مسجل بنجاح!"))
+            .catch((error) => console.log("فشل التسجيل:", error));
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>تحدي الحروف؟</h1>
+        <h2>🎯 المرحلة الأولى</h2>
+        <div id="score">النقاط: 0</div>
+        <div id="question"></div>
+        <div id="answerDisplay"></div>
+        <div id="lettersContainer"></div>
+        <button onclick="clearAnswer()">مسح الإجابة</button>
+        <button onclick="checkAnswer()">تحقق من الإجابة</button>
+        <div id="result"></div>
+        <audio id="correctSound" src="sounds/correct.mp3"></audio>
+        <audio id="wrongSound" src="sounds/wrong.mp3"></audio>
+        <video id="endVideo" width="600" controls style="display: none;">
+            <source src="videos/end.mp4" type="video/mp4">
+        </video>
+        <div id="buttonsContainer" style="display: none;">
+            <button id="restartBtn" onclick="restartGame()">🔄 إعادة اللعب</button>
+            <button id="nextLevelBtn" onclick="goToNextLevel()" style="display: none;">🚀 الانتقال إلى المرحلة الثانية</button>
+        </div>
+        <div id="game">
+            <h2 id="question"></h2>
+            <p id="score">النقاط: 20</p>
+            <button onclick="skipQuestion()">تخطي السؤال (-10 نقاط)</button>
+        </div>        
+    </div>
+    
+    <script src="script.js"></script>
+    <button id="installBtn" style="display: none;">📥 تثبيت اللعبة</button>
+
+<script>
+    let installPrompt;
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        installPrompt = event;
+        document.getElementById("installBtn").style.display = "block";
+    });
+
+    document.getElementById("installBtn").addEventListener("click", () => {
+        installPrompt.prompt();
+        installPrompt.userChoice.then((choice) => {
+            if (choice.outcome === "accepted") {
+                console.log("تم تثبيت التطبيق!");
+            } else {
+                console.log("تم إلغاء التثبيت.");
+            }
+            document.getElementById("installBtn").style.display = "none";
+        });
+    });
+</script>
+
+</body>
+</html>
